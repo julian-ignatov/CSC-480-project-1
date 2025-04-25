@@ -56,6 +56,7 @@ def dfs(start_state):
         'W': (0, -1)
     }
 
+    # Iterate until stack is empty
     while stack:
         (robot_pos, dirty_cells), path = stack.pop()
         nodes_expanded += 1
@@ -91,6 +92,7 @@ def dfs(start_state):
 
 
 def ucs(start_state):
+    # Initialize variables
     rows, cols = start_state["rows"], start_state["cols"]
     walls = start_state["walls"]
     robot_pos = start_state["robot_pos"]
@@ -113,6 +115,7 @@ def ucs(start_state):
         'W': (0, -1)
     }
 
+    # Iterate until heap is empty
     while heap:
         cost, (robot_pos, dirty_cells), path = heapq.heappop(heap)
         if cost > visited[(robot_pos, dirty_cells)]:
